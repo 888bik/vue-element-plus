@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import "./style.css";
+import "./style.scss";
 import type { buttonProps, ButtonInstance } from "./types.ts";
 
 const _ref = ref<ButtonInstance>();

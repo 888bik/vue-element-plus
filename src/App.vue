@@ -13,4 +13,4 @@
 import Button from "./components/Button/Button.vue";
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
