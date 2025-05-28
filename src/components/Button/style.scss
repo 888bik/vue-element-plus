@@ -85,29 +85,30 @@
     margin-left: 6px;
   }
 }
-@each $val in primary, success, warning, info, danger {
-  .bk-button--$(val) {
+$button-types: primary, success, warning, info, danger;
+@each $val in $button-types {
+  .bk-button--#{$val} {
     --bk-button-text-color: var(--bk-color-white);
-    --bk-button-bg-color: var(--bk-color-$(val));
-    --bk-button-border-color: var(--bk-color-$(val));
-    --bk-button-outline-color: var(--bk-color-$(val)-light-5);
-    --bk-button-active-color: var(--bk-color-$(val)-dark-2);
+    --bk-button-bg-color: var(--bk-color-#{$val});
+    --bk-button-border-color: var(--bk-color-#{$val});
+    --bk-button-outline-color: var(--bk-color-#{$val}-light-5);
+    --bk-button-active-color: var(--bk-color-#{$val}-dark-2);
     --bk-button-hover-text-color: var(--bk-color-white);
-    --bk-button-hover-bg-color: var(--bk-color-$(val)-light-3);
-    --bk-button-hover-border-color: var(--bk-color-$(val)-light-3);
-    --bk-button-active-bg-color: var(--bk-color-$(val)-dark-2);
-    --bk-button-active-border-color: var(--bk-color-$(val)-dark-2);
+    --bk-button-hover-bg-color: var(--bk-color-#{$val}-light-3);
+    --bk-button-hover-border-color: var(--bk-color-#{$val}-light-3);
+    --bk-button-active-bg-color: var(--bk-color-#{$val}-dark-2);
+    --bk-button-active-border-color: var(--bk-color-#{$val}-dark-2);
     --bk-button-disabled-text-color: var(--bk-color-white);
-    --bk-button-disabled-bg-color: var(--bk-color-$(val)-light-5);
-    --bk-button-disabled-border-color: var(--bk-color-$(val)-light-5);
+    --bk-button-disabled-bg-color: var(--bk-color-#{$val}-light-5);
+    --bk-button-disabled-border-color: var(--bk-color-#{$val}-light-5);
   }
-  .bk-button--$(val).is-plain {
-    --bk-button-text-color: var(--bk-color-$(val));
-    --bk-button-bg-color: var(--bk-color-$(val)-light-9);
-    --bk-button-border-color: var(--bk-color-$(val)-light-5);
+  .bk-button--#{$val}.is-plain {
+    --bk-button-text-color: var(--bk-color-#{$val});
+    --bk-button-bg-color: var(--bk-color-#{$val}-light-9);
+    --bk-button-border-color: var(--bk-color-#{$val}-light-5);
     --bk-button-hover-text-color: var(--bk-color-white);
-    --bk-button-hover-bg-color: var(--bk-color-$(val));
-    --bk-button-hover-border-color: var(--bk-color-$(val));
+    --bk-button-hover-bg-color: var(--bk-color-#{$val});
+    --bk-button-hover-border-color: var(--bk-color-#{$val});
     --bk-button-active-text-color: var(--bk-color-white);
   }
 }
