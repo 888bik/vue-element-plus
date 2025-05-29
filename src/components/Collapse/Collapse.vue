@@ -32,7 +32,6 @@ const handleItemClick = (item: NameType) => {
     activeNames.value = [];
   }
   // 为什么不直接activeNames.value.push()
-
   //先解构赋值给一个新的数组,这样做能被检测到引用变化,触发更新
   let _activeNames = [...activeNames.value];
   if (props.accordion) {
@@ -54,7 +53,6 @@ const handleItemClick = (item: NameType) => {
   emits("change", _activeNames);
 };
 
-//解决bug
 watch(
   () => props.modelValue,
   () => {

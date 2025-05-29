@@ -18,7 +18,11 @@
     :autofocus="autofocus"
     :type="nativeType"
   >
-    <slot />
+    <Icon icon="spinner" spin v-if="loading" />
+
+    <span>
+      <slot />
+    </span>
   </button>
 </template>
 
@@ -26,6 +30,7 @@
 import { ref } from "vue";
 import "./style.scss";
 import type { buttonProps, ButtonInstance } from "./types.ts";
+import Icon from "../Icon/Icon.vue";
 
 const _ref = ref<ButtonInstance>();
 
