@@ -54,7 +54,6 @@ const handleItemClick = (item: NameType) => {
   emits("change", _activeNames);
 };
 
-//解决bug
 watch(
   () => props.modelValue,
   () => {
