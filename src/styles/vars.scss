@@ -1,3 +1,5 @@
+@use "sass:color";
+
 :root {
   /* 基础颜色 */
   --bk-color-white: #ffffff;
@@ -15,11 +17,11 @@
     --bk-color-#{$val}: #{$color};
     @for $i from 3 through 9 {
       @if $i %2 ==1 {
-        --bk-color-#{$val}-light-#{$i}: #{mix(#fff, $color, $i * 10%)};
+        --bk-color-#{$val}-light-#{$i}: #{color.mix(#fff, $color, $i * 10%)};
       }
     }
-    --bk-color-#{$val}-light-8: #{mix(white, $color, 80%)};
-    --bk-color-#{$val}-dark-2: #{mix(black, $color, 20%)};
+    --bk-color-#{$val}-light-8: #{color.mix(white, $color, 80%)};
+    --bk-color-#{$val}-dark-2: #{color.mix(black, $color, 20%)};
   }
 
   --bk-bg-color: #ffffff;
