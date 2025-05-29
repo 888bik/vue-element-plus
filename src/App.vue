@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Button type="info" circle>info</Button>
-    <Button type="danger" plain>danger</Button>
-    <Button type="success">success</Button>
+    <Button type="info" circle>info </Button>
+    <Button type="danger" plain loading> danger </Button>
+    <Button type="success" loading>success</Button>
     <Button type="warning">warning</Button>
     <Button size="large" round>large</Button>
     <Button size="small">small</Button>
