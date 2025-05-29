@@ -13,6 +13,10 @@ import {
   type NameType,
 } from "./types";
 
+defineOptions({
+  name: "BkCollapse",
+});
+
 const props = defineProps<CollapseProps>();
 const emits = defineEmits<CollapseEmits>();
 
@@ -27,9 +31,9 @@ const handleItemClick = (item: NameType) => {
   if (!Array.isArray(activeNames.value)) {
     activeNames.value = [];
   }
-  //为什么不能直接使用push
-  // activeNames.push()
-  //先解构赋值给一个新的数组
+  // 为什么不直接activeNames.value.push()
+
+  //先解构赋值给一个新的数组,这样做能被检测到引用变化,触发更新
   let _activeNames = [...activeNames.value];
   if (props.accordion) {
     //手风琴模式需要判断name是否存在于activeNames中,如果存在则移除,不存在则添加name
@@ -50,9 +54,14 @@ const handleItemClick = (item: NameType) => {
   emits("change", _activeNames);
 };
 
-setTimeout(() => {
-  // activeNames.value = ["b"];
-}, 2000);
+//解决bug
+watch(
+  () => props.modelValue,
+  () => {
+    activeNames.value = props.modelValue;
+  }
+);
+
 provide(collapseContextKey, {
   activeNames,
   handleItemClick,

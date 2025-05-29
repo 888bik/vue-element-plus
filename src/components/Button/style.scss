@@ -81,7 +81,7 @@
     background-color: var(--bk-button-disabled-bg-color);
     border-color: var(--bk-button-disabled-border-color);
   }
-  [class*="vk-icon"] + span {
+  [class*="bk-icon"] + span {
     margin-left: 6px;
   }
 }
