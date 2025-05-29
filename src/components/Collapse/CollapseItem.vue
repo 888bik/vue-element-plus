@@ -23,14 +23,18 @@
 import { computed, inject } from "vue";
 import { collapseContextKey, type CollapseItemProps } from "./types";
 
-//获取父组件提供的数据,思考为什么不用props接收
+defineOptions({
+  name: "BkCollapseItem",
+});
+//获取父组件提供的数据,这里因为用到了插槽,Collapse不是很方便将属性传递给子组件,所以用provider和inject
 const collapseContext = inject(collapseContextKey);
 
-//要接收的参数
 const props = defineProps<CollapseItemProps>();
+
 const isActive = computed(() =>
   collapseContext?.activeNames.value.includes(props.name)
 );
+
 const handleClick = () => {
   if (props.disabled) return;
   //将接收的name值传递给父组件
