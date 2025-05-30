@@ -29,6 +29,17 @@
     <Icon icon="thumbs-up" size="2xl" type="success" />
     <Icon icon="arrow-up" size="2xl" color="red" />
   </div>
+  <div>
+    <Link href="https://baidu.com" type="danger">跳转百度</Link>
+    <Link href="https://jd.com" target="_blank" type="info" disabled
+      >跳转京东</Link
+    >
+
+    <Link type="success" href="https://....." underline="always"
+      >跳转饿了么</Link
+    >
+    <Link href="https://meituan.com" underline="hover">跳转美团</Link>
+  </div>
   <!-- {{ openedValue }} -->
 </template>
 
@@ -38,11 +49,16 @@ import Button from "./components/Button/Button.vue";
 import Collapse from "./components/Collapse/Collapse.vue";
 import CollapseItem from "./components/Collapse/CollapseItem.vue";
 import Icon from "./components/Icon/Icon.vue";
+import Link from "./components/Link/Link.vue";
+
+const openedValue = ref([]);
 
 const handleActiveNames = (e) => {
   // console.log(e);
 };
-const openedValue = ref([]);
+const test = (e) => {
+  console.log("点击事件");
+};
 </script>
 
 <style scoped></style>
