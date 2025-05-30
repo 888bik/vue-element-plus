@@ -5,7 +5,9 @@ export type linkProps = {
   href: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
   onClick?: (e?: MouseEvent) => void;
-  // icon:
+  // icon?: string;
+  // iconPosition?: "left" | "right";
+  // iconColor: string;
 };
 
 export type LinkType = "primary" | "success" | "info" | "warning" | "danger";

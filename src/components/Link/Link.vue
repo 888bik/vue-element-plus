@@ -8,7 +8,14 @@
     :style="customStyles"
     @click="handleClick"
   >
+    <!-- <span v-if="icon && iconPosition === 'left'">
+      <Icon :icon="icon" />
+    </span> -->
     <slot />
+    <slot name="icon" />
+    <!-- <span v-if="icon && iconPosition === 'right'">
+      <Icon :icon="icon" color="" />
+    </span> -->
   </a>
 </template>
 
@@ -16,11 +23,17 @@
 import type { LinkInstance, linkProps } from "./type";
 import "./style.scss";
 import { computed, onMounted, ref } from "vue";
+
 defineOptions({
   name: "BkLink",
 });
 
+// const props = withDefaults(defineProps<linkProps>(), {
+//   iconPosition: "left",
+// });
+
 const props = defineProps<linkProps>();
+
 const emits = defineEmits<{ (e: "click", event: MouseEvent): void }>();
 
 const customStyles = computed(() => {
@@ -29,11 +42,9 @@ const customStyles = computed(() => {
       textDecoration: "underline",
     };
   }
-  if (props.underline === "hover") {
-    return {};
-  }
 });
 
+//动态添加class
 const computedClass = computed(() => ({
   [`bk-link--${props.type}`]: props.type,
   "is-disabled": props.disabled,
@@ -57,6 +68,7 @@ const handleClick = (e: MouseEvent) => {
   emits("click", e);
 };
 
+//阻止处于禁用状态下的交互
 onMounted(() => {
   document.querySelectorAll("a.is-disabled").forEach((link) => {
     link.addEventListener("click", (e) => {
