@@ -30,14 +30,16 @@
     <Icon icon="arrow-up" size="2xl" color="red" />
   </div>
   <div>
-    <Link href="https://baidu.com" type="danger">跳转百度</Link>
+    <Link href="https://baidu.com" type="danger"
+      >跳转百度
+      <Icon icon="thumbs-up" type="info" />
+    </Link>
     <Link href="https://jd.com" target="_blank" type="info" disabled
       >跳转京东</Link
     >
-
     <Link type="success" href="https://....." underline="always"
-      >跳转饿了么</Link
-    >
+      >跳转饿了么
+    </Link>
     <Link href="https://meituan.com" underline="hover">跳转美团</Link>
   </div>
   <!-- {{ openedValue }} -->
