@@ -8,6 +8,7 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"]
     },
+    "types": ["@vue/test-utils"],
 
     /* Linting */
     "strict": true,
