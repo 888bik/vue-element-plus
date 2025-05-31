@@ -28,10 +28,6 @@ defineOptions({
   name: "BkLink",
 });
 
-// const props = withDefaults(defineProps<linkProps>(), {
-//   iconPosition: "left",
-// });
-
 const props = defineProps<linkProps>();
 
 const emits = defineEmits<{ (e: "click", event: MouseEvent): void }>();
