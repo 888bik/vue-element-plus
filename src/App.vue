@@ -1,6 +1,7 @@
 <template>
+  <!-- 按钮案例 -->
   <div>
-    <Button type="info" circle>info </Button>
+    <Button type="info" circle disabled>info </Button>
     <Button type="danger" plain loading> danger </Button>
     <Button type="success" loading>success</Button>
     <Button type="warning">warning</Button>
