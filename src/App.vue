@@ -7,6 +7,7 @@
     <Button size="large" round>large</Button>
     <Button size="small">small</Button>
   </div>
+  <br /><br />
   <div>
     <Collapse @change="handleActiveNames" v-model="openedValue">
       <CollapseItem title="I am title" name="a">
@@ -25,10 +26,12 @@
       </CollapseItem>
     </Collapse>
   </div>
+  <br /><br />
   <div>
     <Icon icon="thumbs-up" size="2xl" type="success" />
     <Icon icon="arrow-up" size="2xl" color="red" />
   </div>
+  <br /><br />
   <div>
     <Link href="https://baidu.com" type="danger"
       >跳转百度
@@ -42,7 +45,24 @@
     </Link>
     <Link href="https://meituan.com" underline="hover">跳转美团</Link>
   </div>
+  <br /><br />
   <!-- {{ openedValue }} -->
+  <div>
+    <Alert show-icon title="primary" description="你好Vue" />
+    <Alert type="warning" @close="handleClose" title="warning" />
+    <Alert type="info" @close="handleClose" title="info" />
+    <Alert type="success" title="success" />
+    <Alert type="error" title="error"> </Alert>
+    <br />
+    <Alert effect="dark" title="primary" />
+    <Alert type="warning" effect="dark" close-text="关闭" title="warning" />
+    <Alert type="info" effect="dark" center title="info" />
+    <Alert type="success" effect="dark" show-icon title="success">
+      <!-- <h1>I am zsd</h1> -->
+      hello I am bik
+    </Alert>
+    <Alert type="error" effect="dark" show-icon title="error" />
+  </div>
 </template>
 
 <script setup>
@@ -52,6 +72,7 @@ import Collapse from "./components/Collapse/Collapse.vue";
 import CollapseItem from "./components/Collapse/CollapseItem.vue";
 import Icon from "./components/Icon/Icon.vue";
 import Link from "./components/Link/Link.vue";
+import Alert from "./components/Alert/Alert.vue";
 
 const openedValue = ref([]);
 
@@ -60,6 +81,9 @@ const handleActiveNames = (e) => {
 };
 const test = (e) => {
   console.log("点击事件");
+};
+const handleClose = () => {
+  console.log("监听事件点击");
 };
 </script>
 

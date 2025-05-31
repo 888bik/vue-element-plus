@@ -29,6 +29,7 @@ h4,
 h5,
 h6 {
   color: var(--bk-text-color-regular);
+  // color: inherit;
   font-weight: inherit;
 
   &:first-child {
