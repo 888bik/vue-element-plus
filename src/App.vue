@@ -9,6 +9,7 @@
     <Button size="small">small</Button>
   </div>
   <br /><br />
+  <!-- 折叠面板 -->
   <div>
     <Collapse @change="handleActiveNames" v-model="openedValue">
       <CollapseItem title="I am title" name="a">

@@ -9,6 +9,9 @@
       "@components/*": ["src/components/*"]
     },
     "types": ["@vue/test-utils"],
+    // "jsx": "preserve",
+    // "jsxFactory": "h",
+    // "jsxFragmentFactory": "Fragment",
 
     /* Linting */
     "strict": true,
