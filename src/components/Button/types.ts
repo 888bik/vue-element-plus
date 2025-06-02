@@ -1,7 +1,7 @@
 //按钮类型
 export type ButtonType = "primary" | "success" | "info" | "warning" | "danger";
 //按钮尺寸
-export type ButtonSize = "medium" | "small" | "mini";
+export type ButtonSize = "large" | "medium" | "small" | "mini";
 // 原生按钮类型
 export type NativeType = "button" | "submit" | "reset";
 
