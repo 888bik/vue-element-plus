@@ -5,8 +5,8 @@
     <Button type="danger" plain loading> danger </Button>
     <Button type="success" loading>success</Button>
     <Button type="warning">warning</Button>
-    <Button size="large" round>large</Button>
-    <Button size="small">small</Button>
+    <Button size="large" @click="open" round>open</Button>
+    <Button size="small" @click="close">close</Button>
   </div>
   <br /><br />
   <!-- 折叠面板 -->
@@ -49,7 +49,7 @@
   </div>
   <br /><br />
   <!-- {{ openedValue }} -->
-  <div>
+  <!-- <div>
     <Alert show-icon title="primary" description="你好Vue" />
     <Alert type="warning" @close="handleClose" title="warning" />
     <Alert type="info" @close="handleClose" title="info" />
@@ -60,14 +60,20 @@
     <Alert type="warning" effect="dark" close-text="关闭" title="warning" />
     <Alert type="info" effect="dark" center title="info" />
     <Alert type="success" effect="dark" show-icon title="success">
-      <!-- <h1>I am zsd</h1> -->
       hello I am bik
     </Alert>
     <Alert type="error" effect="dark" show-icon title="error" />
-  </div>
+  </div> -->
+  <br /><br />
+  <Tooltip ref="tooltipRef" placement="right">
+    <img src="./assets/vue.svg" alt="" />
+    <template #content>
+      <h1>hello vue</h1>
+    </template>
+  </Tooltip>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import Button from "./components/Button/Button.vue";
 import Collapse from "./components/Collapse/Collapse.vue";
@@ -75,17 +81,23 @@ import CollapseItem from "./components/Collapse/CollapseItem.vue";
 import Icon from "./components/Icon/Icon.vue";
 import Link from "./components/Link/Link.vue";
 import Alert from "./components/Alert/Alert.vue";
+import Tooltip from "./components/Tooltip/Tooltip.vue";
+import type { TooltipInstance } from "./components/Tooltip/types";
 
 const openedValue = ref([]);
 
-const handleActiveNames = (e) => {
-  // console.log(e);
+const tooltipRef = ref<TooltipInstance | null>(null);
+
+const handleActiveNames = () => {};
+// const test = (e) => {
+//   console.log("点击事件");
+// };
+
+const open = () => {
+  tooltipRef.value?.show();
 };
-const test = (e) => {
-  console.log("点击事件");
-};
-const handleClose = () => {
-  console.log("监听事件点击");
+const close = () => {
+  tooltipRef.value?.hide();
 };
 </script>
 

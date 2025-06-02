@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkInstance, linkProps } from "./type";
+import type { LinkInstance, linkProps } from "./types";
 import "./style.scss";
 import { computed, onMounted, ref } from "vue";
 
