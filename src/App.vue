@@ -65,16 +65,22 @@
     <Alert type="error" effect="dark" show-icon title="error" />
   </div> -->
   <br /><br />
-  <Tooltip ref="tooltipRef" placement="right">
-    <img src="./assets/vue.svg" alt="" />
-    <template #content>
-      <h1>hello vue</h1>
-    </template>
-  </Tooltip>
+  <div>
+    <Tooltip ref="tooltipRef" placement="right">
+      <img src="./assets/vue.svg" alt="" />
+      <template #content>
+        <h1>hello vue</h1>
+      </template>
+    </Tooltip>
+  </div>
+  <br /><br />
+  <div>
+    <Dropdown :menu-options="options">hello world </Dropdown>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { h, ref } from "vue";
 import Button from "./components/Button/Button.vue";
 import Collapse from "./components/Collapse/Collapse.vue";
 import CollapseItem from "./components/Collapse/CollapseItem.vue";
@@ -82,12 +88,22 @@ import Icon from "./components/Icon/Icon.vue";
 import Link from "./components/Link/Link.vue";
 import Alert from "./components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
+// import Dropdown from "./components/Dropdown/Dropdown.vue";
 import type { TooltipInstance } from "./components/Tooltip/types";
+import type { MenuOption } from "./components/Dropdown/types";
+import Dropdown from "./components/Dropdown/Dropdown.tsx";
 
 const openedValue = ref([]);
 
 const tooltipRef = ref<TooltipInstance | null>(null);
 
+const options: MenuOption[] = [
+  { key: 1, label: h("b", "this is bold") },
+  // { key: 1, label: "item1" },
+  { key: 2, label: "item2", disabled: true },
+  { key: 3, label: "item3", divided: true },
+  { key: 4, label: "item4" },
+];
 const handleActiveNames = () => {};
 // const test = (e) => {
 //   console.log("点击事件");
@@ -98,6 +114,10 @@ const open = () => {
 };
 const close = () => {
   tooltipRef.value?.hide();
+};
+
+const handleItem = (item: MenuOption) => {
+  console.log("监听到点击");
 };
 </script>
 

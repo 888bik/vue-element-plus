@@ -10,16 +10,16 @@
 .bk-tooltip {
   border: 1px solid red;
   .bk-tooltip__popper {
-    &::before {
-      /* 添加隐形热区 */
-      content: "";
-      position: absolute;
-      top: -9px;
-      bottom: -9px;
-      left: -9px;
-      right: -9px;
-      background: transparent;
-    }
+    // &::before {
+    //   /* 添加隐形热区 */
+    //   content: "";
+    //   position: absolute;
+    //   top: -9px;
+    //   bottom: -9px;
+    //   left: -9px;
+    //   right: -9px;
+    //   background: transparent;
+    // }
     background: var(--bk-popover-bg-color);
     border-radius: var(--bk-popover-border-radius);
     border: 1px solid var(--bk-popover-border-color);
