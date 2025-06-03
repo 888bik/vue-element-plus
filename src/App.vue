@@ -75,9 +75,7 @@
   </div>
   <br /><br />
   <div>
-    <Dropdown :menu-options="options" @select="handleItem"
-      >hello world
-    </Dropdown>
+    <Dropdown :menu-options="options">hello world </Dropdown>
   </div>
 </template>
 
@@ -90,9 +88,10 @@ import Icon from "./components/Icon/Icon.vue";
 import Link from "./components/Link/Link.vue";
 import Alert from "./components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
-import Dropdown from "./components/Dropdown/Dropdown.vue";
+// import Dropdown from "./components/Dropdown/Dropdown.vue";
 import type { TooltipInstance } from "./components/Tooltip/types";
 import type { MenuOption } from "./components/Dropdown/types";
+import Dropdown from "./components/Dropdown/Dropdown.tsx";
 
 const openedValue = ref([]);
 
