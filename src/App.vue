@@ -77,10 +77,14 @@
   <div>
     <Dropdown :menu-options="options">hello world </Dropdown>
   </div>
+  <br /><br />
+  <!-- <div>
+    <Message message="hello next">hello react</Message>
+  </div> -->
 </template>
 
 <script setup lang="ts">
-import { h, ref } from "vue";
+import { h, onMounted, ref } from "vue";
 import Button from "./components/Button/Button.vue";
 import Collapse from "./components/Collapse/Collapse.vue";
 import CollapseItem from "./components/Collapse/CollapseItem.vue";
@@ -89,9 +93,11 @@ import Link from "./components/Link/Link.vue";
 import Alert from "./components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
 // import Dropdown from "./components/Dropdown/Dropdown.vue";
+import Message from "./components/Message/Message.vue";
+import { createMessage } from "./components/Message/methods.ts";
+import Dropdown from "./components/Dropdown/Dropdown.tsx";
 import type { TooltipInstance } from "./components/Tooltip/types";
 import type { MenuOption } from "./components/Dropdown/types";
-import Dropdown from "./components/Dropdown/Dropdown.tsx";
 
 const openedValue = ref([]);
 
@@ -116,9 +122,22 @@ const close = () => {
   tooltipRef.value?.hide();
 };
 
-const handleItem = (item: MenuOption) => {
-  console.log("监听到点击");
-};
+// const handleItem = (item: MenuOption) => {
+//   console.log("监听到点击");
+// };
+onMounted(() => {
+  createMessage({ message: "hello vue", showClose: true, type: "danger" });
+  const instance2 = createMessage({
+    message: "hello java",
+    showClose: true,
+    type: "success",
+  });
+  createMessage({ message: "hello react", showClose: true, type: "warning" });
+
+  // setTimeout(() => {
+  //   instance2.destroy();
+  // }, 4000);
+});
 </script>
 
 <style scoped></style>
