@@ -1,0 +1,74 @@
+.bk-message {
+  --bk-message-bg-color: var(--bk-color-info-light-9);
+  --bk-message-border-color: var(--bk-border-color-lighter);
+  --bk-message-padding: 15px 19px;
+  --bk-message-close-size: 16px;
+  --bk-message-close-icon-color: var(--bk-text-color-placeholder);
+  --bk-message-close-hover-color: var(--bk-text-color-secondary);
+}
+
+.bk-message {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: var(--bk-border-radius-base);
+  border-width: var(--bk-border-width);
+  border-style: var(--bk-border-style);
+  border-color: var(--bk-message-border-color);
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: var(--bk-message-bg-color);
+  padding: var(--bk-message-padding);
+  display: flex;
+  align-items: center;
+  transition: top var(--bk-transition-duration),
+    opacity var(--bk-transition-duration),
+    transform var(--bk-transition-duration);
+  .bk-message__content {
+    color: var(--bk-message-text-color);
+    overflow-wrap: anywhere;
+  }
+  &.is-close .bk-message__content {
+    padding-right: 30px;
+  }
+  .bk-message__close {
+    display: flex;
+    align-items: center;
+  }
+  .bk-message__close svg {
+    color: var(--bk-message-close-color, rgb(168, 171, 178));
+    margin-left: 6px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--bk-message-close-hover-color, var(--bk-color-primary));
+    }
+  }
+}
+// 不同类型样式
+$types: primary, success, warning, info, danger;
+@each $type in $types {
+  .bk-message__close--#{$type} {
+    --bk-message-close-color: var(--bk-color-#{$type}-light-5);
+    --bk-message-close-hover-color: var(--bk-color-#{$type});
+  }
+}
+@each $val in $types {
+  .bk-message--#{$val} {
+    --bk-message-bg-color: var(--bk-color-#{$val}-light-9);
+    --bk-message-border-color: var(--bk-color-#{$val}-light-8);
+    --bk-message-text-color: var(--bk-color-#{$val});
+    .bk-message__close {
+      --bk-icon-color: var(--bk-color-#{$val});
+    }
+  }
+}
+.bk-message.fade-up-enter-from,
+.bk-message.fade-up-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
