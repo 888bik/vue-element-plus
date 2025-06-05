@@ -126,7 +126,12 @@ const close = () => {
 //   console.log("监听到点击");
 // };
 onMounted(() => {
-  createMessage({ message: "hello vue", showClose: true, type: "danger" });
+  createMessage({
+    message: "hello vue",
+    showClose: true,
+    type: "danger",
+    duration: 3000,
+  });
   const instance2 = createMessage({
     message: "hello java",
     showClose: true,
@@ -134,9 +139,9 @@ onMounted(() => {
   });
   createMessage({ message: "hello react", showClose: true, type: "warning" });
 
-  // setTimeout(() => {
-  //   instance2.destroy();
-  // }, 4000);
+  setTimeout(() => {
+    instance2.destroy();
+  }, 4000);
 });
 </script>
 

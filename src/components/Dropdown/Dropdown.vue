@@ -41,7 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import "./style.scss";
 import Tooltip from "../Tooltip/Tooltip.vue";
 import type {
   DropdownEmits,
