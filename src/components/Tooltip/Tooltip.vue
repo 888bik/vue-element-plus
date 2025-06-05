@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
 import { computed, onUnmounted, reactive, ref, watch } from "vue";
-import "./style.scss";
 import type { TooltipEmits, TooltipInstance, TooltipProps } from "./types";
 import { createPopper, type Instance, type Options } from "@popperjs/core";
 import useClickOutside from "../../hooks/useClickOutside";

@@ -28,7 +28,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import "./style.scss";
 import type { buttonProps, ButtonInstance } from "./types.ts";
 import Icon from "../Icon/Icon.vue";
 

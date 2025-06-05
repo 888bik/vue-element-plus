@@ -49,7 +49,6 @@
 
 <script setup lang="ts">
 import type { alertProps } from "./type";
-import "./style.scss";
 import CloseIcon from "../../assets/close.svg";
 import InfoIcon from "../../assets/InfoIcon.svg";
 import ErrorIcon from "../../assets/errorIcon.svg";

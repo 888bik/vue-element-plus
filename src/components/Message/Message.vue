@@ -30,7 +30,6 @@
 import { computed, nextTick, onMounted, ref, watch } from "vue";
 import close from "../../assets/close.svg";
 import RenderVNode from "../Common/RenderVNode";
-import "./style.scss";
 import type { MessageProps } from "./types";
 import { getLastBottomOffset } from "./methods";
 import useEventListener from "../../hooks/useEventListener";

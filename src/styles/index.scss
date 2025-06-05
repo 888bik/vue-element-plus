@@ -1,2 +1,10 @@
 @use "vars.scss";
 @use "reset.scss";
+@use "../components/Alert/style.scss" as *;
+@use "../components/Button/style.scss" as *;
+@use "../components/Link/style.scss" as *;
+@use "../components/Collapse/style.scss" as *;
+@use "../components/Icon/style.scss" as *;
+@use "../components/Message/style.scss" as *;
+@use "../components/Dropdown/style.scss" as *;
+@use "../components/Tooltip/style.scss" as *;

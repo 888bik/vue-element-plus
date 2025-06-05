@@ -10,11 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import "./style.scss";
 import { omit } from "lodash-es";
-import type { IconProps } from "./types";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { computed } from "vue";
+import type { IconProps } from "./types";
 
 defineOptions({
   name: "BkIcon",

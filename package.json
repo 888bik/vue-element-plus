@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -24,6 +27,8 @@
     "@eslint/js": "^9.27.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vitejs/plugin-vue-jsx": "^4.2.0",
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.4.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.27.0",
@@ -42,6 +47,7 @@
     "vite": "^6.3.5",
     "vite-plugin-eslint": "^1.8.1",
     "vite-svg-loader": "^5.1.0",
+    "vitepress": "^1.6.3",
     "vitest": "^3.1.4",
     "vue-tsc": "^2.2.8"
   }
