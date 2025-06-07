@@ -81,6 +81,16 @@
   <!-- <div>
     <Message message="hello next">hello react</Message>
   </div> -->
+  <br /><br />
+  <div>
+    <Input
+      :model-value="text"
+      @change="handleChange"
+      @input="handleInput"
+      @update:model-value="handleUpdate"
+    />
+    {{ text }}
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -98,6 +108,7 @@ import { createMessage } from "./components/Message/methods.ts";
 import Dropdown from "./components/Dropdown/Dropdown.tsx";
 import type { TooltipInstance } from "./components/Tooltip/types";
 import type { MenuOption } from "./components/Dropdown/types";
+import Input from "./components/Input/Input.vue";
 
 const openedValue = ref([]);
 
@@ -125,6 +136,19 @@ const close = () => {
 // const handleItem = (item: MenuOption) => {
 //   console.log("监听到点击");
 // };
+
+const text = ref();
+
+const handleChange = (value: string) => {
+  console.log("change发生变化", value);
+};
+const handleInput = (value: string) => {
+  console.log("input发生变化");
+};
+const handleUpdate = (value: string) => {
+  text.value = value;
+};
+
 onMounted(() => {
   createMessage({
     message: "hello vue",
