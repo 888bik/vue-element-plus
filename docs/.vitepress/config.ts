@@ -3,7 +3,6 @@ import {
   containerPreview,
   componentPreview,
 } from "@vitepress-demo-preview/plugin";
-import { fileURLToPath } from "url";
 // https://vitepress.dev/reference/site-config
 
 // console.log("@->:", fileURLToPath(new URL("../../src", import.meta.url)));
@@ -11,13 +10,6 @@ export default defineConfig({
   title: "vue-element-plus",
 
   description: "A VitePress Site",
-  vite: {
-    resolve: {
-      alias: {
-        "@": fileURLToPath(new URL("../../src", import.meta.url)),
-      },
-    },
-  },
   markdown: {
     config(md) {
       md.use(containerPreview);
