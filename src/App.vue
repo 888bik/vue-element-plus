@@ -49,7 +49,7 @@
   </div>
   <br /><br />
   <!-- {{ openedValue }} -->
-  <!-- <div>
+  <div>
     <Alert show-icon title="primary" description="你好Vue" />
     <Alert type="warning" @close="handleClose" title="warning" />
     <Alert type="info" @close="handleClose" title="info" />
@@ -62,8 +62,8 @@
     <Alert type="success" effect="dark" show-icon title="success">
       hello I am bik
     </Alert>
-    <Alert type="error" effect="dark" show-icon title="error" />
-  </div> -->
+    <Alert type="error" effect="dark" show-icon title="error" center />
+  </div>
   <br /><br />
   <div>
     <Tooltip ref="tooltipRef" placement="right">
@@ -100,7 +100,7 @@ import Collapse from "./components/Collapse/Collapse.vue";
 import CollapseItem from "./components/Collapse/CollapseItem.vue";
 import Icon from "./components/Icon/Icon.vue";
 import Link from "./components/Link/Link.vue";
-import Alert from "./components/Alert/Alert.vue";
+import Alert from "@/components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
 // import Dropdown from "./components/Dropdown/Dropdown.vue";
 import Message from "./components/Message/Message.vue";
@@ -136,6 +136,9 @@ const close = () => {
 // const handleItem = (item: MenuOption) => {
 //   console.log("监听到点击");
 // };
+const handleClose = () => {
+  console.log("alert关闭");
+};
 
 const text = ref();
 

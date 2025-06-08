@@ -31,21 +31,20 @@
     overflow-wrap: anywhere;
   }
   &.is-close .bk-message__content {
-    padding-right: 30px;
+    padding-right: 10px;
   }
   .bk-message__close {
     display: flex;
     align-items: center;
-  }
-  .bk-message__close svg {
-    color: var(--bk-message-close-color, rgb(168, 171, 178));
-    margin-left: 6px;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
+    .bk-icon {
+      color: var(--bk-message-close-color, rgb(168, 171, 178));
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
 
-    &:hover {
-      color: var(--bk-message-close-hover-color, var(--bk-color-primary));
+      &:hover {
+        color: var(--bk-message-close-hover-color, var(--bk-color-primary));
+      }
     }
   }
 }

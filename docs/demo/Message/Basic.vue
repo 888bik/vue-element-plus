@@ -1,27 +1,14 @@
-<template></template>
-
+<template>
+  <Button @click="open('primary')" type="primary"> Primary </Button>
+  <Button @click="open('success')" type="success"> Success </Button>
+  <Button @click="open('info')" type="info"> Info </Button>
+  <Button @click="open('warning')" type="warning"> warning </Button>
+  <Button @click="open('danger')" type="danger"> Danger </Button>
+</template>
 <script setup lang="ts">
-import { onMounted } from "vue";
+import Button from "../../../src/components/Button/Button.vue";
 import { createMessage } from "../../../src/components/Message/methods";
-
-onMounted(() => {
-  createMessage({
-    message: "hello vue",
-    showClose: true,
-    type: "danger",
-    duration: 3000,
-  });
-  const instance2 = createMessage({
-    message: "hello java",
-    showClose: true,
-    type: "success",
-  });
-  createMessage({ message: "hello react", showClose: true, type: "warning" });
-
-  setTimeout(() => {
-    instance2.destroy();
-  }, 4000);
-});
+const open = (type) => {
+  createMessage({ message: "message消息提示", type });
+};
 </script>
-
-<style scoped></style>

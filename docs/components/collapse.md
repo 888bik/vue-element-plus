@@ -5,28 +5,28 @@ description: Collapse 折叠面板组件的文档
 
 # Collapse 折叠面板
 
-可以折叠/展开的内容区域，支持手风琴模式。
+Collapse 组件用于创建可折叠的内容区域。它允许用户点击标题或触发器来展开或收起相关内容，从而有效地管理页面上的信息和节省空间。
 
 ## 基础用法
 
-通过 `v-model` 控制展开的面板，`CollapseItem` 定义每个折叠项。
+在页面上展示大量内容时，Collapse 组件可以帮助节省空间，用户可以通过点击标题或触发器来展开或收起内容区域。
 
 <preview path="../demo/Collapse/Basic.vue" title="基础用法" description="Collapse 组件的基础用法"></preview>
 
 ## 手风琴模式
 
-设置 `accordion` 属性实现每次只展开一个面板。
+同一时间只有一个折叠项处于展开状态的模式。当用户点击其中一个折叠项展开时，其他的折叠项会自动关闭，保持页面上只有一个折叠项是展开的状态。通过 `accordion` 属性来设置是否以手风琴模式显示。
 
-<!-- <preview path="../demo/Collapse/Accordion.vue" title="手风琴模式" description="每次只展开一个面板的效果"></preview> -->
+<preview path="../demo/Collapse/Accordion.vue" title="手风琴模式" description="每次只展开一个面板的效果"></preview>
 
-### Collapse Attributes
+## Collapse 属性说明
 
 | 参数       | 说明                     | 类型         | 默认值  |
 | ---------- | ------------------------ | ------------ | ------- |
 | modelValue | 当前展开的面板 name 数组 | `NameType[]` | —       |
 | accordion  | 是否手风琴模式           | `boolean`    | `false` |
 
-### CollapseItem Attributes
+## CollapseItem 属性说明
 
 | 参数     | 说明       | 类型       | 默认值  |
 | -------- | ---------- | ---------- | ------- |
@@ -34,7 +34,7 @@ description: Collapse 折叠面板组件的文档
 | title    | 面板标题   | `string`   | —       |
 | disabled | 是否禁用   | `boolean`  | `false` |
 
-### Collapse Emits
+## Collapse 事件类型
 
 | 事件名            | 说明               | 回调参数               |
 | ----------------- | ------------------ | ---------------------- |

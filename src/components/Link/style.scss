@@ -14,14 +14,13 @@
 
 .bk-link {
   display: inline-flex;
-  // text-decoration: underline;
   align-items: center;
   justify-content: center;
   font-size: var(--bk-link-font-size);
-  font-weight: var(--bk-link-font-weight);
-  color: var(--bk-link-text-color);
+  font-weight: var(--bk-link-font-weight) !important;
+  color: var(--bk-link-text-color) !important;
   cursor: pointer;
-  transition: color 0.2s, text-decoration 0.2s;
+  transition: color 0.2s, text-decoration 0.2s !important;
   // 默认下划线（可根据需求调整）
   // &--underline {
   //   // text-decoration-color: var(--bk-link-underline-color);

@@ -3,12 +3,22 @@ import {
   containerPreview,
   componentPreview,
 } from "@vitepress-demo-preview/plugin";
+import { fileURLToPath, URL } from "url";
 // https://vitepress.dev/reference/site-config
-
-// console.log("@->:", fileURLToPath(new URL("../../src", import.meta.url)));
+console.log(
+  "Alias path:",
+  fileURLToPath(new URL("../../src", import.meta.url))
+);
 export default defineConfig({
   title: "vue-element-plus",
-
+  vite: {
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("../../src", import.meta.url)),
+        // "@": path.resolve(__dirname, "./src"),
+      },
+    },
+  },
   description: "A VitePress Site",
   markdown: {
     config(md) {
@@ -22,46 +32,46 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "Examples", link: "/markdown-examples" },
     ],
-
     sidebar: [
       {
-        text: "Examples",
+        text: "Feedback 反馈组件",
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "Alert", link: "/components/alert" },
+          {
+            text: "Message",
+            link: "/components/message",
+          },
+          {
+            text: "Tooltip",
+            link: "/components/tooltip",
+          },
         ],
       },
       {
-        text: "Basic",
-        items: [{ text: "Button", link: "/components/button" }],
-      },
-      {
-        text: "Basic",
-        items: [{ text: "Alert", link: "/components/alert" }],
-      },
-      {
-        text: "Basic",
-        items: [{ text: "Collapse", link: "/components/collapse" }],
-      },
-      {
-        text: "Basic",
-        items: [{ text: "Link", link: "/components/link" }],
-      },
-      {
-        text: "Basic",
+        text: "Navigation 导航",
         items: [{ text: "Dropdown", link: "/components/dropdown" }],
       },
       {
-        text: "Basic",
-        items: [{ text: "Icon", link: "/components/icon" }],
+        text: "Data 数据展示",
+        items: [{ text: "Collapse", link: "/components/collapse" }],
       },
       {
-        text: "Basic",
-        items: [{ text: "Message", link: "/components/message" }],
+        text: "Basic 基础组件",
+        items: [
+          { text: "Button", link: "/components/button" },
+          {
+            text: "Icon",
+            link: "/components/icon",
+          },
+          {
+            text: "Link",
+            link: "/components/link",
+          },
+        ],
       },
       {
-        text: "Basic",
-        items: [{ text: "Tooltip", link: "/components/tooltip" }],
+        text: "Form 表单组件",
+        items: [{ text: "Input", link: "/components/input" }],
       },
     ],
 

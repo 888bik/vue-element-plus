@@ -1,64 +1,63 @@
 .bk-alert {
-  display: flex;
-  align-items: center;
+  // height: 34px;
+  min-height: 34px;
   width: 100%;
   max-width: 600px;
-  opacity: 1;
-  box-sizing: border-box;
+  padding: 0px 16px;
   position: relative;
-  border-radius: 3px;
+
+  margin-bottom: 4px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  opacity: 1;
   overflow: hidden;
-  padding: 12px 16px;
+
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--bk-alert-border-color, var(--bk-border-color));
   font-weight: var(--bk-alert-font-weight, var(--bk-font-weight-primary));
   background-color: var(--bk-alert-bg-color, var(--bk-fill-color-blank));
   color: var(--bk-alert-text-color, var(--bk-text-color-regular));
-  border: 1px solid var(--bk-alert-border-color, var(--bk-border-color));
-
-  .icon {
-    width: 16px;
-    height: 16px;
-    color: inherit;
-    margin-right: 5px;
-    flex-shrink: 0;
+  &.is-center {
+    justify-content: center;
   }
-
-  &__content-wrapper {
+  .bk-alert__content-wrapper {
     display: flex;
     align-items: center;
 
-    &.is-center {
-      margin: 0 auto;
+    .bk-icon {
+      margin-right: 12px;
+    }
+    .bk-alert__content {
+      // display: flex;
+      flex-grow: 1;
+
+      .bk-alert__title {
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .bk-alert__description {
+        margin-top: 8px;
+        font-size: 14px;
+      }
     }
 
     //当描述或者插槽内容存在时将图标和title的字体变大
     &:has(.bk-alert__description:not(:empty)) {
       .bk-alert__title {
-        font-size: 18px;
-        padding-bottom: 10px;
+        font-size: 20px;
       }
-      .icon svg {
-        padding-right: 20px;
+      .bk-icon {
         transform: scale(1.5);
       }
     }
   }
 
-  &__title {
-    display: block;
-    font-weight: 500;
-  }
-
-  &__close-btn {
-    display: flex;
+  .bk-alert__close-btn {
     position: absolute;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
     right: 10px;
     color: var(--bk-alert-close-color, rgb(168, 171, 178));
     cursor: pointer;
-    transition: color 0.2s;
-
     &:hover {
       color: var(--bk-alert-close-hover-color, var(--bk-color-primary));
     }
@@ -94,9 +93,4 @@
 }
 .fade-leave-to {
   opacity: 0;
-}
-
-svg {
-  width: 16px;
-  height: 16px;
 }

@@ -1,36 +1,39 @@
 ---
-title: Alert | V-Element
-description: Alert 组件的文档
+title: Alert
+description: Alert组件文档
 ---
 
-### Alert 组件属性说明
+# Alert
 
-| 属性名      | 说明               | 类型                                          | 默认值    | 必填 |
-| ----------- | ------------------ | --------------------------------------------- | --------- | ---- |
-| title       | 警告标题           | `string`                                      | -         | 是   |
-| type        | 警告类型           | `'success' \| 'warning' \| 'info' \| 'error'` | `'info'`  | 否   |
-| effect      | 主题样式           | `'dark' \| 'light'`                           | `'light'` | 否   |
-| closeable   | 是否显示关闭按钮   | `boolean`                                     | `false`   | 否   |
-| closeText   | 自定义关闭按钮文本 | `string`                                      | -         | 否   |
-| center      | 内容是否居中       | `boolean`                                     | `false`   | 否   |
-| description | 警告描述内容       | `string`                                      | -         | 否   |
-| showIcon    | 是否显示图标       | `boolean`                                     | `false`   | 否   |
-| close       | 关闭时的回调函数   | `() => void`                                  | -         | 否   |
+用于向用户提供重要的信息，例如错误消息、成功消息、警告或提示。
 
-### 类型定义
+## 基础用法
 
-```typescript
-type alertTypes = "success" | "warning" | "info" | "error";
+`Alert`组件包括 4 种类型，`Success\Info\Warning\Error`, 分别表示成功消息，提示、警告和错误消息。
 
-interface alertProps {
-  title: string;
-  type?: alertTypes;
-  effect?: "dark" | "light";
-  closeable?: boolean;
-  closeText?: string;
-  center?: boolean;
-  description?: string;
-  showIcon?: boolean;
-  close?: () => void;
-}
-```
+<preview path="../demo/Alert/Basic.vue"></preview>
+
+## 主题
+
+Alert 组件提供了两个不同的主题：light 和 dark。
+
+通过设置 effect 属性来改变主题，默认为 light。
+<preview path="../demo/Alert/Effect.vue"></preview>
+
+## 自定义关闭按钮
+
+你可以自定义关闭按钮为文字或其他符号。`closable`属性决定 Alert 组件是否可关闭，你可以设置 `close-text` 属性来代替右侧的关闭图标，
+
+<preview path="../demo/Alert/Close.vue"></preview>
+
+## 使用图标
+
+你可以通过为 Alert 组件添加图标来提高可读性, 通过设置`show-icon`属性来显示 Alert 的 icon
+
+<preview path="../demo/Alert/Icon.vue"></preview>
+
+## 文字居中
+
+使用 center
+
+<preview path="../demo/Alert/Center.vue"></preview>

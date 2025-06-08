@@ -13,7 +13,14 @@ description: Button 组件的文档
 
 <preview path="../demo/Button/Basic.vue" title="基础用法" description="Button 组件的基础用法"></preview>
 
-### Button Attributes
+## 禁用状态
+
+你可以使用 `disabled` 属性来定义按钮是否被禁用。
+使用 `disabled` 属性来控制按钮是否为禁用状态。 该属性接受一个 `Boolean` 类型的值。
+
+<preview path="../demo/Button/Disabled.vue" title="禁用状态" description="Button 组件的禁用状态"></preview>
+
+## Button 属性说明
 
 | Name        | Description                            | Type                                                             | Default |
 | ----------- | -------------------------------------- | ---------------------------------------------------------------- | ------- |

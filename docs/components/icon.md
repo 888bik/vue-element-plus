@@ -5,30 +5,30 @@ description: Icon 组件的文档
 
 # Icon 图标
 
-基于 FontAwesome 的图标组件，支持多种颜色和类型。
+对`fontawesome`图标库进行封装，涵盖了各种常见的图标需求。
 
 ## 基础用法
 
-使用 `icon` 属性指定图标名称，`color` 自定义颜色。
+传入`icon`属性设置要使用的 Icon 图标。
 
 <preview path="../demo/Icon/Basic.vue" title="基础用法" description="Icon 组件的基础用法"></preview>
 
-## 类型展示
+## 扩展用法
 
-通过 `type` 属性可以设置不同的预设类型样式。
+Icon 组件是对`fontawesome`图标库的封装，因此该图标库的相关属性均可以设置, 比如颜色`color`、大小`size`, 旋转角度`rotation`。
 
-<preview path="../demo/Icon/Basic.vue" title="类型展示" description="五种预设类型的图标展示"></preview>
+<preview path="../demo/Icon/Icon.vue" title="扩展用法" description="Icon 组件的扩展用法"></preview>
 
-### Icon Attributes
+## Icon 属性说明
 
-| 参数                     | 说明                        | 类型                                                        | 默认值 |
-| ------------------------ | --------------------------- | ----------------------------------------------------------- | ------ |
-| icon                     | FontAwesome 图标名称        | `IconLookup`                                                | —      |
-| color                    | 自定义颜色                  | `string`                                                    | —      |
-| type                     | 预设类型                    | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | —      |
-| ...其他 FontAwesome 属性 | 继承自 FontAwesomeIconProps | —                                                           | —      |
+| 参数                  | 说明                        | 类型                                                        | 默认值 |
+| --------------------- | --------------------------- | ----------------------------------------------------------- | ------ |
+| icon                  | FontAwesome 图标名称        | `IconLookup`                                                | —      |
+| color                 | 自定义颜色                  | `string`                                                    | —      |
+| type                  | 预设类型                    | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | —      |
+| 其他 FontAwesome 属性 | 继承自 FontAwesomeIconProps | —                                                           | —      |
 
-### 继承的 FontAwesomeIconProps
+## 继承的 FontAwesomeIconProps
 
 | 常用参数   | 说明                                                 |
 | ---------- | ---------------------------------------------------- |
@@ -38,7 +38,7 @@ description: Icon 组件的文档
 | border     | 是否显示边框                                         |
 | fixedWidth | 是否固定宽度                                         |
 
-### 类型定义
+## 类型定义
 
 ```typescript
 interface IconProps extends FontAwesomeIconProps {

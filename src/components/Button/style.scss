@@ -59,6 +59,16 @@
     --bk-button-hover-bg-color: var(--bk-fill-color-blank);
     --bk-button-hover-border-color: var(--bk-color-primary);
   }
+  &.is-disabled.is-plain {
+    --bk-button-text-color: var(--bk-button-disabled-text-color);
+    --bk-button-bg-color: var(--bk-button-disabled-bg-color);
+    --bk-button-border-color: var(--bk-button-disabled-border-color);
+
+    &:hover {
+      --bk-button-text-color: var(--bk-button-disabled-text-color);
+      --bk-button-bg-color: var(--bk-button-disabled-bg-color);
+    }
+  }
   /*round*/
   &.is-round {
     border-radius: var(--bk-border-radius-round);

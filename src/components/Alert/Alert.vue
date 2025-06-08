@@ -6,61 +6,53 @@
         [`bk-alert--${type}`]: type,
         'is-light': effect === 'light',
         'is-dark': effect === 'dark',
+        'is-center': center,
       }"
       v-if="isVisible"
     >
-      <div class="bk-alert__content-wrapper" :class="{ 'is-center': center }">
-        <!-- 图标 -->
-        <div v-if="showIcon" class="icon">
-          <template v-if="type === 'info'"> <InfoIcon /> </template>
-          <template v-else-if="type === 'primary'"><PrimaryIcon /> </template>
-          <template v-else-if="type === 'error'"><ErrorIcon /> </template>
-          <template v-else-if="type === 'success'"><SuccessIcon /></template>
-          <template v-else="type === 'warning'"><WarningIcon /> </template>
-        </div>
+      <div class="bk-alert__content-wrapper">
+        <!-- 类型图标 -->
+        <template v-if="showIcon">
+          <Icon :icon="showAlertIcon()" />
+        </template>
+
         <!-- 内容区域 -->
         <div class="bk-alert__content">
           <!-- 标题 -->
           <span class="bk-alert__title" v-if="title">
-            {{ title }}
+            <slot name="title">{{ title }}</slot>
           </span>
 
           <template v-if="$slots.default || description">
             <div class="bk-alert__description">
-              <slot />
-              {{ description }}
+              <slot>{{ description }}</slot>
             </div>
           </template>
         </div>
       </div>
 
       <!-- 关闭按钮 -->
-      <div class="bk-alert__close-btn" v-if="closeable" @click="handleClose">
-        <template v-if="closeText">
+      <template v-if="closeable">
+        <!-- 自定义的关闭文本 -->
+        <div class="bk-alert__close-btn" @click="handleClose" v-if="closeText">
           {{ closeText }}
-        </template>
-        <template v-else>
-          <CloseIcon />
-        </template>
-      </div>
+        </div>
+        <!-- 默认的图标关闭 -->
+        <Icon
+          icon="xmark"
+          v-else
+          @click="handleClose"
+          class="bk-alert__close-btn"
+        ></Icon>
+      </template>
     </div>
   </Transition>
 </template>
 
 <script setup lang="ts">
 import type { alertProps } from "./type";
-import CloseIcon from "../../assets/close.svg";
-import InfoIcon from "../../assets/InfoIcon.svg";
-import ErrorIcon from "../../assets/errorIcon.svg";
-import PrimaryIcon from "../../assets/primaryIcon.svg";
-import WarningIcon from "../../assets/warningIcon.svg";
-import SuccessIcon from "../../assets/successIcon.svg";
 import { ref } from "vue";
-// import CloseIcon from "@/assets/close.svg";
-// import ErrorIcon from "@/assets/errorIcon.svg";
-// import PrimaryIcon from "@/assets/primaryIcon.svg";
-// import SuccessIcon from "@/assets/successIcon.svg";
-// import InfoIcon from "@/assets/InfoIcon.svg";
+import Icon from "../Icon/Icon.vue";
 
 defineOptions({
   name: "BkAlert",
@@ -68,7 +60,7 @@ defineOptions({
 
 const emits = defineEmits<{ (e: "close", event: MouseEvent): void }>();
 
-withDefaults(defineProps<alertProps>(), {
+const props = withDefaults(defineProps<alertProps>(), {
   effect: "light",
   closeable: true,
   center: false,
@@ -81,6 +73,23 @@ const isVisible = ref(true);
 const handleClose = (e: MouseEvent) => {
   emits("close", e);
   isVisible.value = false;
+};
+
+// 根据警报类型返回相应的图标名称
+const showAlertIcon = () => {
+  switch (props.type) {
+    case "error":
+      return "circle-xmark";
+    case "primary":
+    case "info":
+      return "circle-info";
+    case "success":
+      return "circle-check";
+    case "warning":
+      return "circle-exclamation";
+    default:
+      return "circle-info";
+  }
 };
 </script>
 

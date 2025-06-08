@@ -2,7 +2,7 @@ export type linkProps = {
   type?: LinkType;
   disabled?: boolean;
   underline?: "always" | "hover" | "never" | boolean;
-  href: string;
+  href?: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
   onClick?: (e?: MouseEvent) => void;
 };
