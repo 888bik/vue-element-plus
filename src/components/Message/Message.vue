@@ -20,7 +20,7 @@
         v-if="showClose"
         :class="{ [`bk-message__close--${type}`]: type }"
       >
-        <close @click.stop="handleClose" />
+        <Icon icon="xmark" @click.stop="handleClose" />
       </div>
     </div>
   </Transition>
@@ -28,18 +28,19 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from "vue";
-import close from "../../assets/close.svg";
 import RenderVNode from "../Common/RenderVNode";
 import type { MessageProps } from "./types";
 import { getLastBottomOffset } from "./methods";
 import useEventListener from "../../hooks/useEventListener";
+import Icon from "../Icon/Icon.vue";
+
 defineOptions({
   name: "BkMessage",
 });
 const props = withDefaults(defineProps<MessageProps>(), {
   type: "info",
-  duration: 0,
-  showClose: true,
+  duration: 3000,
+  showClose: false,
   offset: 20,
   transitionName: "fade-up",
 });

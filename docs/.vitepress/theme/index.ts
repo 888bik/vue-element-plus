@@ -11,6 +11,7 @@ library.add(fas);
 
 export default {
   ...DefaultTheme,
+
   enhanceApp({ app }) {
     app.component("demo-preview", ElementPlusContainer);
   },

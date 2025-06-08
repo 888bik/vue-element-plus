@@ -105,6 +105,7 @@ import Icon from "../Icon/Icon.vue";
 
 defineOptions({
   name: "BkInput",
+  inheritAttrs: false,
 });
 //@change和@input的区别:change值发生变化并且失去焦点时发生变化,input值发生变化时变化
 const props = withDefaults(defineProps<InputProps>(), {
@@ -148,7 +149,7 @@ const handleClear = () => {
   emits("update:modelValue", "");
 };
 const handleBlur = (event: FocusEvent) => {
-  isFocus.value = false;
+  // isFocus.value = false;
   emits("blur", event);
 };
 const togglePasswordVisible = () => {

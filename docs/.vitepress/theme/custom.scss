@@ -8,7 +8,9 @@
   --component-preview-bg: var(--vp-code-block-bg);
   --component-preview-soft: var(--vp-code-block-bg-light);
 }
-
+:where(.vp-doc) a {
+  text-decoration: none; /* 默认值，不强制覆盖 */
+}
 body {
   color: var(--vp-c-text-1);
 }
@@ -21,3 +23,9 @@ h6,
 p {
   color: var(--vp-c-text-1);
 }
+// .vp-doc .vitepress-demo-preview-preview ul,
+// .vp-doc .vitepress-demo-preview-preview ol {
+//   list-style-type: none;
+//   margin: 0;
+//   padding: 0;
+// }

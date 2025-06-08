@@ -14,6 +14,7 @@ const instances: MessageContext[] = shallowReactive([]);
 export const createMessage = (props: CreateMessageProps) => {
   const id = `message_${seed++}`;
   const { nextZIndex } = useZIndex();
+  
   const destroy = () => {
     //删除数组中的实例
     const index = instances.findIndex((instance) => instance.id === id);
@@ -69,4 +70,10 @@ export const getLastBottomOffset = (id: string) => {
     const prev = instances[index - 1];
     return prev.vm.exposed!.currentBottomOffset.value;
   }
+};
+//关闭所有的实例
+export const closeAll = () => {
+  instances.forEach((instance) => {
+    instance.destroy();
+  });
 };
