@@ -6,7 +6,7 @@
       'is-disabled': disabled,
       'is-checked': checked,
     }"
-    @click="switchValue"
+    @click="toggleSwitch"
   >
     <input
       type="checkbox"
@@ -15,19 +15,32 @@
       ref="inputRef"
       :disabled="disabled"
       :name="name"
-      @keydown.enter="switchValue"
+      @keydown.enter="toggleSwitch"
     />
-    <div class="bk-switch__core">
+    <span
+      class="bk-switch__label-left bk-switch__label"
+      v-if="!inlinePrompt && inactiveText"
+    >
+      {{ inactiveText }}
+    </span>
+    <div class="bk-switch__core" :style="switchStyle">
       <div class="bk-switch__core-inner">
         <span
           class="bk-switch__core-inner-text"
-          v-if="activeText || inactiveText"
+          v-if="inlinePrompt && (activeText || inactiveText)"
         >
           {{ checked ? activeText : inactiveText }}
         </span>
       </div>
       <div class="bk-switch__core-action"></div>
     </div>
+
+    <span
+      class="bk-switch__label bk-switch__label-right"
+      v-if="!inlinePrompt && activeText"
+    >
+      {{ activeText }}
+    </span>
   </div>
 </template>
 
@@ -43,8 +56,7 @@ defineOptions({
 const props = withDefaults(defineProps<SwitchProps>(), {
   activeValue: true,
   inactiveValue: false,
-  activeText: "OFF",
-  inactiveText: "NO",
+  inlinePrompt: true,
 });
 const emits = defineEmits<SwitchEmits>();
 const innerValue = ref(props.modelValue);
@@ -54,7 +66,7 @@ const checked = computed(() => {
 });
 const inputRef = ref<HTMLInputElement>();
 
-const switchValue = () => {
+const toggleSwitch = () => {
   if (props.disabled) return;
   // innerValue.value = !checked.value;
   const newValue = checked.value ? props.inactiveValue : props.activeValue;
@@ -78,6 +90,13 @@ watch(
     innerValue.value = newValue;
   }
 );
+
+const switchStyle = computed(() => {
+  return {
+    background: checked.value ? props.activeColor : props.inactiveColor,
+    border: checked.value ? props.activeColor : props.inactiveColor,
+  };
+});
 </script>
 
 <style scoped></style>

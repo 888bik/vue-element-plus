@@ -35,6 +35,12 @@
         padding: 0 18px 0 4px;
       }
     }
+    .bk-switch__label-left {
+      color: #303133;
+    }
+    .bk-switch__label-right {
+      color: var(--bk-switch-on-border-color);
+    }
   }
   &.is-disabled {
     opacity: 0.6;
@@ -125,4 +131,23 @@
       color: var(--bk-switch-on-color);
     }
   }
+}
+
+.bk-switch__label {
+  transition: 0.2s;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.bk-switch__label-right {
+  margin-left: 8px;
+}
+.bk-switch__label-left {
+  margin-right: 8px;
+  color: var(--bk-switch-on-border-color);
 }

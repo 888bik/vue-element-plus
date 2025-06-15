@@ -71,7 +71,10 @@ export default defineConfig({
       },
       {
         text: "Form 表单组件",
-        items: [{ text: "Input", link: "/components/input" }],
+        items: [
+          { text: "Input", link: "/components/input" },
+          { text: "Switch", link: "/components/switch" },
+        ],
       },
     ],
 
