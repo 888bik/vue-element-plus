@@ -93,9 +93,23 @@
   </div>
   <br /><br />
   <div>
-    <Switch model-value />
-    <Switch model-value size="large" />
-    <Switch model-value size="small" />
+    <div>
+      <Switch model-value :inline-prompt="false" />
+    </div>
+    <div>
+      <Switch
+        model-value
+        size="large"
+        active-text="开开开开开开开开"
+        inactive-text="关"
+      />
+    </div>
+    <div>
+      <Switch model-value size="small" />
+    </div>
+    <div>
+      <Switch model-value active-color="orange" inactive-color="red" />
+    </div>
   </div>
 </template>
 
