@@ -40,30 +40,3 @@ Collapse 组件用于创建可折叠的内容区域。它允许用户点击标�
 | ----------------- | ------------------ | ---------------------- |
 | update:modelValue | 同步展开状态变化   | `(values: NameType[])` |
 | change            | 展开状态变化时触发 | `(values: NameType[])` |
-
-### 类型定义
-
-```typescript
-type NameType = string | number;
-
-interface CollapseProps {
-  modelValue: NameType[];
-  accordion?: boolean;
-}
-
-interface CollapseItemProps {
-  name: NameType;
-  title?: string;
-  disabled?: boolean;
-}
-
-interface CollapseContext {
-  activeNames: Ref<NameType[]>;
-  handleItemClick: (name: NameType) => void;
-}
-
-interface CollapseEmits {
-  (e: "update:modelValue", values: NameType[]): void;
-  (e: "change", values: NameType[]): void;
-}
-```

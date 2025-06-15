@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <!-- 单独的disabled属性是为了便于禁用绑定到button上的事件，
   比如：点击事件。class里的is-disabled是为了给按钮添加禁用的样式。 -->
@@ -18,7 +17,10 @@
     :autofocus="autofocus"
     :type="nativeType"
   >
+    <!-- 加载图标 -->
     <Icon icon="spinner" spin v-if="loading" />
+    <!-- 自定义图标 -->
+    <Icon :icon="icon" v-if="icon" />
 
     <span v-if="$slots.default">
       <slot />

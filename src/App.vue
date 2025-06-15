@@ -49,7 +49,7 @@
   </div>
   <br /><br />
   <!-- {{ openedValue }} -->
-  <div>
+  <!-- <div>
     <Alert show-icon title="primary" description="你好Vue" />
     <Alert type="warning" @close="handleClose" title="warning" />
     <Alert type="info" @close="handleClose" title="info" />
@@ -63,7 +63,7 @@
       hello I am bik
     </Alert>
     <Alert type="error" effect="dark" show-icon title="error" center />
-  </div>
+  </div> -->
   <br /><br />
   <div>
     <Tooltip ref="tooltipRef" placement="right">
@@ -91,6 +91,12 @@
     />
     {{ text }}
   </div>
+  <br /><br />
+  <div>
+    <Switch model-value />
+    <Switch model-value size="large" />
+    <Switch model-value size="small" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -103,12 +109,12 @@ import Link from "./components/Link/Link.vue";
 import Alert from "@/components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
 // import Dropdown from "./components/Dropdown/Dropdown.vue";
-import Message from "./components/Message/Message.vue";
 import { createMessage } from "./components/Message/methods.ts";
 import Dropdown from "./components/Dropdown/Dropdown.tsx";
 import type { TooltipInstance } from "./components/Tooltip/types";
 import type { MenuOption } from "./components/Dropdown/types";
 import Input from "./components/Input/Input.vue";
+import Switch from "./components/Switch/Switch.vue";
 
 const openedValue = ref([]);
 
