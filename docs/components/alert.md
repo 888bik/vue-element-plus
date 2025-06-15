@@ -1,6 +1,6 @@
 ---
-title: Alert
-description: Alert组件文档
+title: Alert | V-Element
+description: Alert的组件文档
 ---
 
 # Alert
@@ -37,3 +37,17 @@ Alert 组件提供了两个不同的主题：light 和 dark。
 使用 center
 
 <preview path="../demo/Alert/Center.vue"></preview>
+
+## Alert 属性说明
+
+| Name          | Description          | Type                                                            | Default |
+| ------------- | -------------------- | --------------------------------------------------------------- | ------- |
+| `title`       | alert 标题           | `string`                                                        | -       |
+| `type`        | alert 类型           | `enum` - `'primary'\| 'success'\| 'info'\| 'warning'\| 'error'` | -       |
+| `effect`      | 背景效果             | `enum` - `'dark'\| 'light'`                                     | -       |
+| `closeable`   | 决定组件是否可以关闭 | `boolean`                                                       | `true`  |
+| `closeText`   | 代替右侧的关闭图标   | `string`                                                        | -       |
+| `center`      | 文字是否居中         | `boolean`                                                       | `false` |
+| `description` | alert 描述内容       | `string`                                                        | -       |
+| `showIcon`    | 是否显示图标         | `boolean`                                                       | `false` |
+| `close`       | 关闭时的回调函数     | `() => void`                                                    | -       |

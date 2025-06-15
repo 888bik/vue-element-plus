@@ -25,7 +25,7 @@ description: Tooltip 组件的文档
 
 <!-- <preview path="../demo/Tooltip/Advanced.vue" title="高级配置" description="自定义 Popper.js 配置"></preview> -->
 
-### Tooltip Attributes
+## Tooltip 组件属性说明
 
 | 参数          | 说明             | 类型                                                                                                                                                                 | 默认值    |
 | ------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
@@ -38,24 +38,9 @@ description: Tooltip 组件的文档
 | openDelay     | 打开延迟(ms)     | `number`                                                                                                                                                             | `0`       |
 | closeDelay    | 关闭延迟(ms)     | `number`                                                                                                                                                             | `0`       |
 
-### Tooltip Slots
+## Tooltip 插槽
 
 | Name    | Description                         |
 | ------- | ----------------------------------- |
 | default | 触发 Tooltip 的内容                 |
 | content | 自定义提示内容（替代 content 属性） |
-
-### 类型定义
-
-```typescript
-interface TooltipProps {
-  content?: string;
-  trigger?: "hover" | "click";
-  placement?: Placement;
-  manual?: boolean;
-  popperOptions?: Partial<Options>;
-  transition?: string;
-  openDelay?: number;
-  closeDelay?: number;
-}
-```

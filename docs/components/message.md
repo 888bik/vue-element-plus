@@ -3,7 +3,7 @@ title: Message | V-Element
 description: Message 组件的文档
 ---
 
-## Message 组件
+# Message 组件
 
 与 Alert 组件类似，Message 组件也用于向用户提供关键的信息，但通常它是以非阻塞的方式显示，显示临时性的通知，比如操作成功，操作失败，通常会在屏幕的某个角落或顶部浮动，不会打断用户的操作。
 
@@ -39,19 +39,3 @@ description: Message 组件的文档
 | zIndex         | 消息层级         | `number`                                                   | -        | 是   |
 | offset         | 垂直偏移量(px)   | `number`                                                   | `16`     | 否   |
 | transitionName | 过渡动画名称     | `string`                                                   | -        | 否   |
-
-## 类型定义
-
-```typescript
-interface MessageProps {
-  message?: string | VNode;
-  duration?: number;
-  showClose?: boolean;
-  type?: "success" | "info" | "warning" | "danger";
-  onDestroy: () => void;
-  id: string;
-  zIndex: number;
-  offset?: number;
-  transitionName?: string;
-}
-```

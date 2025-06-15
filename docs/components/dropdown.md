@@ -19,7 +19,7 @@ description: Dropdown 下拉菜单组件的文档
 
 <!-- <preview path="../demo/Dropdown/Trigger.vue" title="触发行为" description="点击后隐藏菜单的配置"></preview> -->
 
-### Dropdown Attributes
+## Dropdown 组件属性说明
 
 | 参数            | 说明                  | 类型           | 默认值 |
 | --------------- | --------------------- | -------------- | ------ |
@@ -27,7 +27,7 @@ description: Dropdown 下拉菜单组件的文档
 | hideAfterClick  | 点击后是否隐藏菜单    | `boolean`      | `true` |
 | ...TooltipProps | 继承全部 Tooltip 属性 | —              | —      |
 
-### MenuOption 结构
+## MenuOption 结构
 
 | 参数     | 说明           | 类型               | 默认值  |
 | -------- | -------------- | ------------------ | ------- |
@@ -36,30 +36,9 @@ description: Dropdown 下拉菜单组件的文档
 | disabled | 是否禁用       | `boolean`          | `false` |
 | divided  | 是否显示分割线 | `boolean`          | `false` |
 
-### Dropdown Emits
+## Dropdown 事件
 
 | 事件名         | 说明                 | 回调参数              |
 | -------------- | -------------------- | --------------------- |
 | visible-change | 下拉菜单显示状态变化 | `(value: boolean)`    |
 | select         | 菜单项选择事件       | `(value: MenuOption)` |
-
-### 类型定义
-
-```typescript
-interface MenuOption {
-  label: string | VNode;
-  key: string | number;
-  disabled?: boolean;
-  divided?: boolean;
-}
-
-interface DropdownProps extends TooltipProps {
-  menuOptions: MenuOption[];
-  hideAfterClick?: boolean;
-}
-
-interface DropdownEmits {
-  (e: "visible-change", value: boolean): void;
-  (e: "select", value: MenuOption): void;
-}
-```

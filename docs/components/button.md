@@ -20,6 +20,18 @@ description: Button 组件的文档
 
 <preview path="../demo/Button/Disabled.vue" title="禁用状态" description="Button 组件的禁用状态"></preview>
 
+## Icon
+
+<preview path="../demo/Button/Icon.vue"></preview>
+
+## 加载状态按钮
+
+<preview path="../demo/Button/Loading.vue"></preview>
+
+## 大小不同的按钮
+
+<preview path="../demo/Button/Size.vue"></preview>
+
 ## Button 属性说明
 
 | Name        | Description                            | Type                                                             | Default |

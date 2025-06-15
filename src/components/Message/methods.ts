@@ -46,6 +46,8 @@ export const createMessage = (props: CreateMessageProps) => {
   };
 
   const vm = vNode.component!;
+  
+  //封装的实例
   const instance = {
     vNode,
     vm,
