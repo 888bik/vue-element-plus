@@ -9,6 +9,7 @@
       'is-prefix': $slots.prefix,
       'is-suffix': $slots.suffix,
       'is-append': $slots.append,
+      'is-focus': isFocus,
     }"
   >
     <!-- input -->
@@ -109,9 +110,8 @@ defineOptions({
 });
 //@change和@input的区别:change值发生变化并且失去焦点时发生变化,input值发生变化时变化
 const props = withDefaults(defineProps<InputProps>(), {
-  clearable: true,
-  disabled: false,
-  showPassword: true,
+  type: "text",
+  autocomplete: "off",
 });
 const emits = defineEmits<InputEmits>();
 const inputRef = ref<HTMLInputElement>();
@@ -149,8 +149,9 @@ const handleClear = () => {
   emits("update:modelValue", "");
 };
 const handleBlur = (event: FocusEvent) => {
-  // isFocus.value = false;
+  isFocus.value = false;
   emits("blur", event);
+  console.log("失去焦点");
 };
 const togglePasswordVisible = () => {
   passwordVisible.value = !passwordVisible.value;
@@ -170,7 +171,7 @@ watch(
   }
 );
 defineExpose({
-  inputRef,
+  ref: inputRef,
 });
 </script>
 <style scoped></style>

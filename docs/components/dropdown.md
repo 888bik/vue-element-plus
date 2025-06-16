@@ -13,19 +13,13 @@ description: Dropdown 下拉菜单组件的文档
 
 <preview path="../demo/Dropdown/Basic.vue" title="基础用法" description="Dropdown 组件的基础用法"></preview>
 
-## 触发行为
-
-通过 `hideAfterClick` 控制点击后是否自动隐藏菜单。
-
-<!-- <preview path="../demo/Dropdown/Trigger.vue" title="触发行为" description="点击后隐藏菜单的配置"></preview> -->
-
 ## Dropdown 组件属性说明
 
-| 参数            | 说明                  | 类型           | 默认值 |
-| --------------- | --------------------- | -------------- | ------ |
-| menuOptions     | 菜单配置项数组        | `MenuOption[]` | —      |
-| hideAfterClick  | 点击后是否隐藏菜单    | `boolean`      | `true` |
-| ...TooltipProps | 继承全部 Tooltip 属性 | —              | —      |
+| 参数           | 说明                  | 类型           | 默认值 |
+| -------------- | --------------------- | -------------- | ------ |
+| menuOptions    | 菜单配置项数组        | `MenuOption[]` | —      |
+| hideAfterClick | 点击后是否隐藏菜单    | `boolean`      | `true` |
+| TooltipProps   | 继承全部 Tooltip 属性 | —              | —      |
 
 ## MenuOption 结构
 
