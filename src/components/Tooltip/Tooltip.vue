@@ -51,12 +51,12 @@ const popperOptions = computed<Partial<Options>>(() => {
   return {
     placement: props.placement,
     modifiers: [
-      // {
-      //   name: "offset",
-      //   options: {
-      //     offset: [0, 9],
-      //   },
-      // },
+      {
+        name: "offset",
+        options: {
+          offset: [0, 9],
+        },
+      },
     ],
     ...props.popperOptions,
   };

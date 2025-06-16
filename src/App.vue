@@ -66,21 +66,20 @@
   </div> -->
   <br /><br />
   <div>
-    <Tooltip ref="tooltipRef" placement="right">
+    <Tooltip ref="tooltipRef" placement="right" trigger="click">
       <img src="./assets/vue.svg" alt="" />
       <template #content>
-        <h1>hello vue</h1>
+        <!-- <h1>hello vue</h1> -->
+        hello react
       </template>
     </Tooltip>
   </div>
   <br /><br />
   <div>
-    <Dropdown :menu-options="options">hello world </Dropdown>
+    <Dropdown :menu-options="options" placement="right">hello world </Dropdown>
   </div>
   <br /><br />
-  <!-- <div>
-    <Message message="hello next">hello react</Message>
-  </div> -->
+
   <br /><br />
   <div>
     <Input
@@ -92,7 +91,7 @@
     {{ text }}
   </div>
   <br /><br />
-  <div>
+  <!-- <div>
     <div>
       <Switch model-value :inline-prompt="false" />
     </div>
@@ -100,7 +99,7 @@
       <Switch
         model-value
         size="large"
-        active-text="开开开开开开开开"
+        active-text="开开开开"
         inactive-text="关"
       />
     </div>
@@ -110,7 +109,15 @@
     <div>
       <Switch model-value active-color="orange" inactive-color="red" />
     </div>
-  </div>
+  </div> -->
+  <br /><br />
+  <Select
+    :options="selectOptions"
+    placeholder="基础选择器,请选择"
+    model-value="1"
+    placement="bottom"
+  >
+  </Select>
 </template>
 
 <script setup lang="ts">
@@ -122,13 +129,15 @@ import Icon from "./components/Icon/Icon.vue";
 import Link from "./components/Link/Link.vue";
 import Alert from "@/components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
-// import Dropdown from "./components/Dropdown/Dropdown.vue";
+import Dropdown from "./components/Dropdown/Dropdown.vue";
 import { createMessage } from "./components/Message/methods.ts";
-import Dropdown from "./components/Dropdown/Dropdown.tsx";
-import type { TooltipInstance } from "./components/Tooltip/types";
-import type { MenuOption } from "./components/Dropdown/types";
 import Input from "./components/Input/Input.vue";
 import Switch from "./components/Switch/Switch.vue";
+import Select from "./components/Select/Select.vue";
+// import Dropdown from "./components/Dropdown/Dropdown.tsx";
+import type { TooltipInstance } from "./components/Tooltip/types";
+import type { MenuOption } from "./components/Dropdown/types";
+import type { SelectOption } from "./components/Select/types.ts";
 
 const openedValue = ref([]);
 
@@ -140,6 +149,21 @@ const options: MenuOption[] = [
   { key: 2, label: "item2", disabled: true },
   { key: 3, label: "item3", divided: true },
   { key: 4, label: "item4" },
+];
+const selectOptions: SelectOption[] = [
+  {
+    label: "item1",
+    value: "1",
+    disabled: true,
+  },
+  {
+    label: "item2",
+    value: "2",
+  },
+  {
+    label: "item3",
+    value: "3",
+  },
 ];
 const handleActiveNames = () => {};
 // const test = (e) => {

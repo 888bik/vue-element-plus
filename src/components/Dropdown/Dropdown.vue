@@ -62,9 +62,8 @@ const emits = defineEmits<DropdownEmits>();
 const tooltipRef = ref<TooltipInstance>();
 
 const itemClick = (item: MenuOption) => {
-  if (item.disabled) {
-    return;
-  }
+  if (item.disabled) return;
+
   emits("select", item);
 
   if (props.hideAfterClick) {

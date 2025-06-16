@@ -1,7 +1,7 @@
 <template>
   <div>
     <Tooltip ref="tooltipRef" placement="right">
-      <h2>hello vue</h2>
+      hover me
       <template #content>
         <h1>hello vue</h1>
       </template>
@@ -9,9 +9,9 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from "vue";
-import Tooltip from "../../../src/components/Tooltip/Tooltip.vue";
+import Tooltip from "@/components/Tooltip/Tooltip.vue";
 const tooltipRef = ref();
 </script>
 
