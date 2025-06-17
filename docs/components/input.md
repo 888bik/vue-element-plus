@@ -1,6 +1,6 @@
 ---
 title: Input | V-Element
-description: Input 组件的文档
+description: Input 组件文档
 ---
 
 # Input 输入框

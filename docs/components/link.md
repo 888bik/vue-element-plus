@@ -1,6 +1,6 @@
 ---
 title: Link | V-Element
-description: Link 组件的文档
+description: Link 组件文档
 ---
 
 # Link 导航

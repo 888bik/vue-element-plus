@@ -1,6 +1,6 @@
 ---
 title: Collapse | V-Element
-description: Collapse 折叠面板组件的文档
+description: Collapse 折叠面板组件文档
 ---
 
 # Collapse 折叠面板

@@ -36,35 +36,35 @@ export default defineConfig({
       {
         text: "Feedback 反馈组件",
         items: [
-          { text: "Alert", link: "/components/alert" },
+          { text: "Alert 提示", link: "/components/alert" },
           {
-            text: "Message",
+            text: "Message 消息提示",
             link: "/components/message",
           },
           {
-            text: "Tooltip",
+            text: "Tooltip 文字提示",
             link: "/components/tooltip",
           },
         ],
       },
       {
         text: "Navigation 导航",
-        items: [{ text: "Dropdown", link: "/components/dropdown" }],
+        items: [{ text: "Dropdown 下拉菜单", link: "/components/dropdown" }],
       },
       {
         text: "Data 数据展示",
-        items: [{ text: "Collapse", link: "/components/collapse" }],
+        items: [{ text: "Collapse 折叠面板", link: "/components/collapse" }],
       },
       {
         text: "Basic 基础组件",
         items: [
-          { text: "Button", link: "/components/button" },
+          { text: "Button 按钮", link: "/components/button" },
           {
-            text: "Icon",
+            text: "Icon 图标",
             link: "/components/icon",
           },
           {
-            text: "Link",
+            text: "Link 链接",
             link: "/components/link",
           },
         ],
@@ -72,8 +72,9 @@ export default defineConfig({
       {
         text: "Form 表单组件",
         items: [
-          { text: "Input", link: "/components/input" },
-          { text: "Switch", link: "/components/switch" },
+          { text: "Input 输入框", link: "/components/input" },
+          { text: "Switch 开关", link: "/components/switch" },
+          { text: "Select 选择器", link: "/components/select" },
         ],
       },
     ],

@@ -11,6 +11,20 @@
   display: inline-block;
   vertical-align: middle;
   line-height: 32px;
+  &.is-disabled {
+    .bk-input__inner {
+      cursor: not-allowed;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    // .bk-input__inner ~ .bk-input__suffix > .bk-input__clear {
+    //   cursor: not-allowed;
+    //   &:hover {
+    //     background-color: transparent;
+    //   }
+    // }
+  }
   .bk-tooltip .bk-tooltip__popper {
     padding: 0;
   }
@@ -28,6 +42,14 @@
 
   .bk-input__inner {
     cursor: pointer;
+  }
+  .bk-select__noData,
+  .bk-select__loading {
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+    color: var(--bk-text-color-secondary);
+    font-size: var(--bk-select-font-size);
   }
   .bk-select__menu {
     list-style: none;
@@ -54,6 +76,9 @@
     &.is-selected {
       color: var(--bk-select-item-selected-font-color);
       font-weight: 700;
+    }
+    &.is-highlighted {
+      background-color: var(--bk-select-item-hover-bg-color);
     }
     &.is-disabled {
       color: var(--bk-select-item-disabled-font-color);
