@@ -111,13 +111,16 @@
     </div>
   </div> -->
   <br /><br />
-  <Select
-    :options="selectOptions"
-    placeholder="基础选择器,请选择"
-    model-value="1"
-    placement="bottom"
-  >
-  </Select>
+  <div>
+    <Select
+      :options="selectOptions"
+      placeholder="基础选择器,请选择"
+      model-value="1"
+      placement="bottom"
+      filterable
+    >
+    </Select>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -164,7 +167,21 @@ const selectOptions: SelectOption[] = [
     label: "item3",
     value: "3",
   },
+  {
+    label: "java",
+    value: "4",
+  },
+  {
+    label: "vue",
+    value: "5",
+  },
 ];
+const customRender = (option: SelectOption) => {
+  return h("div", { className: "abc" }, [
+    h("span", option.label),
+    h("b", option.value),
+  ]);
+};
 const handleActiveNames = () => {};
 // const test = (e) => {
 //   console.log("点击事件");
@@ -180,9 +197,9 @@ const close = () => {
 // const handleItem = (item: MenuOption) => {
 //   console.log("监听到点击");
 // };
-const handleClose = () => {
-  console.log("alert关闭");
-};
+// const handleClose = () => {
+//   console.log("alert关闭");
+// };
 
 const text = ref();
 
@@ -190,7 +207,7 @@ const handleChange = (value: string) => {
   console.log("change发生变化", value);
 };
 const handleInput = (value: string) => {
-  console.log("input发生变化");
+  console.log("input发生变化", value);
 };
 const handleUpdate = (value: string) => {
   text.value = value;

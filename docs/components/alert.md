@@ -1,6 +1,6 @@
 ---
 title: Alert | V-Element
-description: Alert的组件文档
+description: Alert 组件文档
 ---
 
 # Alert

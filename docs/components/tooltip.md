@@ -1,6 +1,6 @@
 ---
 title: Tooltip | V-Element
-description: Tooltip 组件的文档
+description: Tooltip 组件文档
 ---
 
 # Tooltip 文字提示

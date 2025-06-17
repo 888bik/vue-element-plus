@@ -1,6 +1,6 @@
 ---
 title: Message | V-Element
-description: Message 组件的文档
+description: Message 组件文档
 ---
 
 # Message 组件

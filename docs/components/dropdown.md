@@ -1,6 +1,6 @@
 ---
 title: Dropdown | V-Element
-description: Dropdown 下拉菜单组件的文档
+description: Dropdown 下拉菜单组件文档
 ---
 
 # Dropdown 下拉菜单

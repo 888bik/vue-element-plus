@@ -1,6 +1,6 @@
 ---
 title: Button | V-Element
-description: Button 组件的文档
+description: Button 组件文档
 ---
 
 # Button 按钮

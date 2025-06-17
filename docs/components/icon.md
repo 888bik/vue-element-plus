@@ -1,6 +1,6 @@
 ---
 title: Icon | V-Element
-description: Icon 组件的文档
+description: Icon 组件文档
 ---
 
 # Icon 图标
