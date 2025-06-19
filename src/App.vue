@@ -29,11 +29,13 @@
     </Collapse>
   </div>
   <br /><br />
+  <!-- 图标 -->
   <div>
     <Icon icon="thumbs-up" size="2xl" type="success" />
     <Icon icon="arrow-up" size="2xl" color="red" />
   </div>
   <br /><br />
+  <!-- 链接 -->
   <div>
     <Link href="https://baidu.com" type="danger"
       >跳转百度
@@ -48,7 +50,7 @@
     <Link href="https://meituan.com" underline="hover">跳转美团</Link>
   </div>
   <br /><br />
-  <!-- {{ openedValue }} -->
+  <!-- alert -->
   <!-- <div>
     <Alert show-icon title="primary" description="你好Vue" />
     <Alert type="warning" @close="handleClose" title="warning" />
@@ -65,6 +67,7 @@
     <Alert type="error" effect="dark" show-icon title="error" center />
   </div> -->
   <br /><br />
+  <!-- 文字提示 -->
   <div>
     <Tooltip ref="tooltipRef" placement="right" trigger="click">
       <img src="./assets/vue.svg" alt="" />
@@ -75,15 +78,15 @@
     </Tooltip>
   </div>
   <br /><br />
+  <!-- 下拉菜单 -->
   <div>
     <Dropdown :menu-options="options" placement="right">hello world </Dropdown>
   </div>
   <br /><br />
-
-  <br /><br />
+  <!-- 输入框 -->
   <div>
     <Input
-      :model-value="text"
+      v-model:model-value="text"
       @change="handleChange"
       @input="handleInput"
       @update:model-value="handleUpdate"
@@ -121,10 +124,43 @@
     >
     </Select>
   </div>
+  <br /><br />
+  <div>
+    <Form :model="model" :rules="rules" ref="formRef">
+      <FormItem label="email" prop="email">
+        <template #label="{ label }">{{ label }} </template>
+        <template #default>
+          <Input v-model="model.email"></Input>
+        </template>
+      </FormItem>
+      <FormItem label="password" prop="password">
+        <template #default>
+          <Input v-model:model-value="model.password" show-password clearable />
+        </template>
+      </FormItem>
+      <FormItem label="confirmPwd" prop="confirmPwd">
+        <template #default="{ validate }">
+          <!-- 这里validate需要指定trigger,否则input会将event传递进去 -->
+          <input
+            type="password"
+            v-model="model.confirmPwd"
+            @blur="validate('blur')"
+          />
+        </template>
+      </FormItem>
+      <Button @click.prevent="submit">提交</Button>
+      <Button @click.prevent="() => formRef?.resetFields()" type="primary"
+        >重置</Button
+      >
+      <Button @click.prevent="() => formRef?.clearValidateAll()" type="info"
+        >清除</Button
+      >
+    </Form>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { h, onMounted, ref } from "vue";
+import { h, onMounted, reactive, ref } from "vue";
 import Button from "./components/Button/Button.vue";
 import Collapse from "./components/Collapse/Collapse.vue";
 import CollapseItem from "./components/Collapse/CollapseItem.vue";
@@ -138,9 +174,12 @@ import Input from "./components/Input/Input.vue";
 import Switch from "./components/Switch/Switch.vue";
 import Select from "./components/Select/Select.vue";
 // import Dropdown from "./components/Dropdown/Dropdown.tsx";
+import Form from "./components/Form/Form.vue";
+import FormItem from "./components/Form/FormItem.vue";
 import type { TooltipInstance } from "./components/Tooltip/types";
 import type { MenuOption } from "./components/Dropdown/types";
 import type { SelectOption } from "./components/Select/types.ts";
+import type { FormInstance, FormRules } from "./components/Form/types.ts";
 
 const openedValue = ref([]);
 
@@ -201,7 +240,8 @@ const close = () => {
 //   console.log("alert关闭");
 // };
 
-const text = ref();
+const text = ref("");
+const formRef = ref<FormInstance>();
 
 const handleChange = (value: string) => {
   console.log("change发生变化", value);
@@ -231,6 +271,32 @@ onMounted(() => {
     instance2.destroy();
   }, 4000);
 });
+
+const model = reactive({
+  email: "123",
+  password: "",
+  confirmPwd: "",
+});
+const rules: FormRules = {
+  email: [{ type: "email", required: true, trigger: "blur" }],
+  password: [{ type: "string", required: true, trigger: "blur" }],
+  // test: [{ type: "string", trigger: "input" }],
+  confirmPwd: [
+    { type: "string", required: true, trigger: "blur" },
+    {
+      validator: (rule, value) => value === model.password,
+      trigger: "blur",
+      message: "两个密码必须相同",
+    },
+  ],
+};
+const submit = async () => {
+  try {
+    await formRef.value?.validate();
+  } catch (error) {
+    console.log(error);
+  }
+};
 </script>
 
 <style scoped></style>

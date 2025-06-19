@@ -100,9 +100,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, ref, useAttrs, watch } from "vue";
+import { computed, inject, nextTick, ref, useAttrs, watch } from "vue";
 import type { InputEmits, InputProps } from "./types";
 import Icon from "../Icon/Icon.vue";
+import { formItemContextKey } from "../Form/types";
 
 defineOptions({
   name: "BkInput",
@@ -111,7 +112,7 @@ defineOptions({
 //@change和@input的区别:change值发生变化并且失去焦点时发生变化,input值发生变化时变化
 const props = withDefaults(defineProps<InputProps>(), {
   type: "text",
-  autocomplete: "off",
+  clearable: true,
 });
 const emits = defineEmits<InputEmits>();
 const inputRef = ref<HTMLInputElement>();
@@ -133,9 +134,11 @@ const showPasswordArea = computed(
 const handleInput = () => {
   emits("update:modelValue", innerValue.value);
   emits("input", innerValue.value);
+  runValidation("input");
 };
 const handleChange = () => {
   emits("change", innerValue.value);
+  runValidation("change");
 };
 const handleFocus = (event: FocusEvent) => {
   isFocus.value = true;
@@ -151,7 +154,7 @@ const handleClear = () => {
 const handleBlur = (event: FocusEvent) => {
   isFocus.value = false;
   emits("blur", event);
-  console.log("失去焦点");
+  runValidation("blur");
 };
 const togglePasswordVisible = () => {
   passwordVisible.value = !passwordVisible.value;
@@ -170,6 +173,13 @@ watch(
     innerValue.value = newValue;
   }
 );
+
+const formItemContext = inject(formItemContextKey);
+
+const runValidation = (trigger?: string) => {
+  formItemContext?.validate(trigger).catch((e) => console.log(e.errors));
+};
+
 defineExpose({
   ref: inputRef,
 });
