@@ -30,6 +30,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  .bk-dialog__right-close {
+    cursor: pointer !important;
+    :hover {
+      color: #e0e0e0;
+    }
+  }
   &.is-draggable {
     cursor: move;
   }
@@ -42,4 +48,15 @@
 .bk-dialog__footer {
   display: flex;
   justify-content: flex-end;
+}
+
+/* 淡入淡出动画 */
+.bk-dialog-fade-enter-active,
+.bk-dialog-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.bk-dialog-fade-enter-from,
+.bk-dialog-fade-leave-to {
+  opacity: 0;
 }

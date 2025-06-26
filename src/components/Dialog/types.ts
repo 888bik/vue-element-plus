@@ -7,4 +7,6 @@ export interface DialogProps {
 
 export interface DialogEmits {
   (e: "visible-change", value: boolean): void;
+  (e: "confirm"): void;
+  (e: "cancel"): void;
 }

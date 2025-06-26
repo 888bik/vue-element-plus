@@ -5,6 +5,7 @@
       title="Tips"
       :visible="visible"
       @visible-change="handleVisibleUpdate"
+      draggable
     >
       <strong>hello dialog</strong>
     </Dialog>

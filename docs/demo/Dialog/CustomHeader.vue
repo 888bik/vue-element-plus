@@ -5,7 +5,12 @@
       title="Tips"
       :visible="visible"
       @visible-change="handleVisibleUpdate"
+      center
     >
+      <template #header>
+        <Button>Hello I am button</Button>
+        <Button>x</Button>
+      </template>
       <strong>hello dialog</strong>
     </Dialog>
   </div>
