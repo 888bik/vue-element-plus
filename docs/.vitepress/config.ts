@@ -45,6 +45,10 @@ export default defineConfig({
             text: "Tooltip 文字提示",
             link: "/components/tooltip",
           },
+          {
+            text: "Dialog 提示框",
+            link: "/components/dialog",
+          },
         ],
       },
       {
