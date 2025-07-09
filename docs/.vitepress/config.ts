@@ -80,6 +80,7 @@ export default defineConfig({
           { text: "Switch 开关", link: "/components/switch" },
           { text: "Select 选择器", link: "/components/select" },
           { text: "Form 表单", link: "/components/form" },
+          { text: "Rate 评分", link: "/components/rate" },
         ],
       },
     ],
